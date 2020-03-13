@@ -14,14 +14,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Database db;
     Button button;
-    EditText loginEmail,loginPassword;
+    EditText loginEmail,loginPass;
     TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        SharedPreferences preferences = getSharedPreferences("enter",MODE_PRIVATE);
-        String cek = preferences.getString("remember","");
+        SharedPreferences preferences = getSharedPreferences("masuk",MODE_PRIVATE);
+        String cek = preferences.getString("ingat","");
 
         if(cek.equals("true")){
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         db = new Database(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.login);
-        loginEmail = findViewById(R.id.emailUser);
-        loginPassword = findViewById(R.id.passwordUser);
-        textView = findViewById(R.id.signup);
+        button = findViewById(R.id.btn_Login);
+        loginEmail = findViewById(R.id.txt_loginEmail);
+        loginPass = findViewById(R.id.txt_loginPass);
+        textView = findViewById(R.id.daftar);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,22 +46,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = loginEmail.getText().toString();
-                String pass = loginPassword.getText().toString();
+                String pass = loginPass.getText().toString();
                 Boolean checkMail = db.checkLogin(email,pass);
                 if(checkMail==true){
-                    Toast.makeText(getApplicationContext(),"\n" +
-                            "Login Successful",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Login Berhasil",Toast.LENGTH_SHORT).show();
 
-                    SharedPreferences preferen = getSharedPreferences("enter",MODE_PRIVATE);
+                    SharedPreferences preferen = getSharedPreferences("masuk",MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferen.edit();
-                    editor.putString("remember","true");
+                    editor.putString("ingat","true");
                     editor.apply();
 
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),"Email or Password is Wrong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Email/Password is Wrong",Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -12,44 +12,44 @@ import androidx.appcompat.app.AppCompatActivity;
 public class RegisActivity extends AppCompatActivity {
     Database db;
     private Button buttonRegis, buttonCancel;
-    private EditText txtEmail, txtNama, txtPass;
-
+    private EditText txtEmail,txtNama,txtPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regis_layout);
         db = new Database(this);
-        txtEmail = findViewById(R.id.name);
-        txtNama = findViewById(R.id.email);
-        txtPass = findViewById(R.id.password);
+        txtEmail = findViewById(R.id.txt_email);
+        txtNama = findViewById(R.id.txt_nama);
+        txtPass = findViewById(R.id.txt_pass);
 
 
-        buttonRegis = findViewById(R.id.regis);
+        buttonRegis = findViewById(R.id.btn_Regis);
         buttonRegis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = txtEmail.getText().toString();
                 String nama = txtNama.getText().toString();
                 String pass = txtPass.getText().toString();
-                if (email.equals("") || nama.equals("") || pass.equals("")) {
-                    Toast.makeText(getApplicationContext(), "This field is required.", Toast.LENGTH_SHORT).show();
-                } else {
+                if(email.equals("") || nama.equals("") || pass.equals("")){
+                    Toast.makeText(getApplicationContext(),"Field Tidak Boleh Kosong",Toast.LENGTH_SHORT).show();
+                }
+                else{
                     Boolean checkMail = db.checkData(email);
-                    if (checkMail == true) {
-                        Boolean insertData = db.masukkanData(email, nama, pass);
-                        if (insertData == true) {
-                            Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
+                    if(checkMail==true){
+                        Boolean insertData = db.masukkanData(email,nama,pass);
+                        if(insertData==true){
+                            Toast.makeText(getApplicationContext(),"Registrasi Berhasil",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisActivity.this, MainActivity.class);
                             startActivity(intent);
                         }
-                    } else {
-                        Toast.makeText(getApplicationContext(), "\n" +
-                                "Email Registered", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Email Telah Terdaftar",Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
-        buttonCancel = findViewById(R.id.cancel);
+        buttonCancel = findViewById(R.id.btn_Batal);
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

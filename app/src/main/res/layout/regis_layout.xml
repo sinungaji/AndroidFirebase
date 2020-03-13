@@ -6,47 +6,46 @@
     android:gravity="center"
     android:background="@color/colorPrimary">
 
+
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="textEmailAddress"/>
-
-        <EditText
-            android:id="@+id/email"
+            android:id="@+id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
             android:inputType="textEmailAddress"/>
-
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/txt_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/txt_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"/>
         <Button
             android:layout_marginTop="10dp"
-            android:id="@+id/regis"
+            android:id="@+id/btn_Regis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:textColor="#ffff"
-            android:text="Regis" />
+            android:text="Register" />
         <Button
             android:layout_marginTop="10dp"
-            android:id="@+id/cancel"
+            android:id="@+id/btn_Batal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:textColor="#ffff"
-            android:text="Cancel"/>
-    </LinearLayout>
+            android:text="Cancel" />
+    </LinearLayout>>
 
 </RelativeLayout>

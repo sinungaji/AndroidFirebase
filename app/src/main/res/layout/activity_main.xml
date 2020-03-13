@@ -13,25 +13,25 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/emailUser"
+            android:id="@+id/txt_loginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
             android:inputType="textEmailAddress"/>
         <EditText
-            android:id="@+id/passwordUser"
+            android:id="@+id/txt_loginPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"/>
         <Button
             android:layout_marginTop="10dp"
-            android:id="@+id/login"
+            android:id="@+id/btn_Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:textColor="#ffff"
-            android:text="Login"/>
+            android:text="Login" />
 
         <LinearLayout
             android:layout_width="300dp"
@@ -44,15 +44,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                android:text="Don't have an account? "/>
+                android:text="Don't have an account?"/>
             <TextView
                 android:layout_marginTop="40dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                android:id="@+id/signup"
+                android:id="@+id/daftar"
                 android:textStyle="bold"
-                android:text="Sign Up"/>
+                android:text="  Sign Up"/>
         </LinearLayout>
     </LinearLayout>
 
