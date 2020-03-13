@@ -17,25 +17,17 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_main);
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tab);
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager()));
 
-        List<String> isTab = new ArrayList<>();
-        isTab.add("Chat");
-        isTab.add("Status");
-        isTab.add("Panggilan");
-
-        for (int i = 0;i < isTab.size(); i++){
-            tabLayout.addTab(tabLayout.newTab().setText(isTab.get(i)));
-        }
-
-        PageAdapter adapter = new PageAdapter(getSupportFragmentManager(), isTab);
-        viewPager.setAdapter(adapter);
-        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabCount();
 
     }
 }

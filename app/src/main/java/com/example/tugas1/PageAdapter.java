@@ -8,34 +8,30 @@ import java.util.List;
 
 public class PageAdapter extends FragmentPagerAdapter {
 
-    private List<String> IsTab;
-    private List<Fragment> IsFragment;
+    private Fragment[] activities;
 
-    public PageAdapter(FragmentManager fn, List<String> IsTab){
+    public PageAdapter(FragmentManager fn){
         super(fn);
-        this.IsTab = IsTab;
-        IsFragment = new ArrayList<>();
+        activities = new Fragment[]{
+                new FragmentHome(),
+                new FragmentStatus(),
+                new FragmentCall(),
+        };
     }
+
     @Override
     public Fragment getItem(int position) {
-        Fragment frag = null;
-        if (IsFragment.size() > position) frag =  IsFragment.get(position);
-
-        if (IsTab.get(position).equals("Chat")) {
-            frag =  new FragmentHome();
-            IsFragment.add(frag);
-        }else if (IsTab.get(position).equals("Status")){
-            frag =  new FragmentStatus();
-            IsFragment.add(frag);
-        }else if (IsTab.get(position).equals("Panggilan")){
-            frag =  new FragmentCall();
-            IsFragment.add(frag);
-        }
-        return null;
+        return activities[position];
     }
 
     @Override
-    public int getCount() {
-        return 0;
+    public int getCount(){
+        return activities.length;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position){
+        String title = getItem(position).getClass().getName();
+        return title.subSequence(title.lastIndexOf(".") + 1, title.length());
     }
 }
