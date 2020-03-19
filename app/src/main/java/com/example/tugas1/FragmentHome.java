@@ -1,15 +1,17 @@
 package com.example.tugas1;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+
+import android.content.Intent;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import androidx.fragment.app.Fragment;
 import static android.content.Context.MODE_PRIVATE;
+
 public class FragmentHome extends Fragment {
 
     private Button logout;
@@ -19,12 +21,11 @@ public class FragmentHome extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferen = getActivity().getSharedPreferences("masuk", MODE_PRIVATE);
+                SharedPreferences preferen = getActivity().getSharedPreferences("Masuk", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferen.edit();
-                editor.putString("ingat","false");
+                editor.putString("Jangan Lupa", "false");
                 editor.apply();
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
+                getActivity().finish();
             }
         });
         return view;

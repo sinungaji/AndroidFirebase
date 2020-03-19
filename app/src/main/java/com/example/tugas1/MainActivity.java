@@ -10,18 +10,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.ComponentName;
 
 public class MainActivity extends AppCompatActivity {
     Database db;
     Button button;
-    EditText loginEmail,loginPass;
+    EditText loginEmail, loginPass;
     TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        SharedPreferences preferences = getSharedPreferences("masuk",MODE_PRIVATE);
-        String cek = preferences.getString("ingat","");
+        SharedPreferences preferences = getSharedPreferences("Masuk",MODE_PRIVATE);
+        String cek = preferences.getString("Jangan Lupa","");
 
         if(cek.equals("true")){
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
@@ -47,23 +49,36 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = loginEmail.getText().toString();
                 String pass = loginPass.getText().toString();
+                broadcaster();
+
                 Boolean checkMail = db.checkLogin(email,pass);
                 if(checkMail==true){
-                    Toast.makeText(getApplicationContext(),"Login Berhasil",Toast.LENGTH_SHORT).show();
+//                  Toast.makeText(getApplicationContext(),"Login Berhasil",Toast.LENGTH_SHORT).show();
 
                     SharedPreferences preferen = getSharedPreferences("masuk",MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferen.edit();
                     editor.putString("ingat","true");
                     editor.apply();
 
+                    Bundle extras = new Bundle();
+                    extras.putString("KEY",email);
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    intent.putExtras(extras);
                     startActivity(intent);
+                    loginEmail.getText().clear();
+                    loginPass.getText().clear();
+
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Email/Password is Wrong",Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }
+    private void broadcaster(){
+        Intent broadcasterIntent = new Intent("My_ACTION");
+        broadcasterIntent.setComponent(new ComponentName(getPackageName(),"com.example.tugas1.MyBroadcastReciver"));
+        getApplicationContext().sendBroadcast(broadcasterIntent);
+    }
+
 }

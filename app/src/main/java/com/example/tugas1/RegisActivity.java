@@ -31,14 +31,14 @@ public class RegisActivity extends AppCompatActivity {
                 String nama = txtNama.getText().toString();
                 String pass = txtPass.getText().toString();
                 if(email.equals("") || nama.equals("") || pass.equals("")){
-                    Toast.makeText(getApplicationContext(),"Field Tidak Boleh Kosong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Field Kosong",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Boolean checkMail = db.checkData(email);
                     if(checkMail==true){
                         Boolean insertData = db.masukkanData(email,nama,pass);
                         if(insertData==true){
-                            Toast.makeText(getApplicationContext(),"Registrasi Berhasil",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Berhasil Registrasi",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisActivity.this, MainActivity.class);
                             startActivity(intent);
                         }

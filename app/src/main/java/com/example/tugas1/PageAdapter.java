@@ -8,6 +8,7 @@ import java.util.List;
 
 public class PageAdapter extends FragmentPagerAdapter {
 
+
     private Fragment[] activities;
 
     public PageAdapter(FragmentManager fn){
