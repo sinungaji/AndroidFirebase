@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".UpdateMahasiswa">
+
+    <EditText
+        android:id="@+id/editTextUploadno_Mahasiswa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="No Mahasiswa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.29000002" />
+
+    <EditText
+        android:id="@+id/editTextUploadnama_Mahasiswa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nama Mahasiswa"
+        app:layout_constraintStart_toStartOf="@+id/editTextUploadno_Mahasiswa"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUploadno_Mahasiswa" />
+
+    <EditText
+        android:id="@+id/editTextUploadPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Phone"
+        app:layout_constraintStart_toStartOf="@+id/editTextUploadnama_Mahasiswa"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUploadnama_Mahasiswa" />
+
+    <Button
+        android:id="@+id/buttonUploadMhs"
+        android:layout_width="151dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
+        android:text="UPDATE"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUploadphone_Mahasiswa" />
+</androidx.constraintlayout.widget.ConstraintLayout>
