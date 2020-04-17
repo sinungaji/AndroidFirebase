@@ -13,29 +13,29 @@ import android.widget.Toast;
 import android.content.ComponentName;
 
 public class MainActivity extends AppCompatActivity {
-    Database db;
+    Database tugasDatabase;
     Button button;
-    EditText loginEmail, loginPass;
+    EditText emailLogin, passwordLogin;
     TextView textView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        SharedPreferences preferences = getSharedPreferences("Masuk",MODE_PRIVATE);
-        String cek = preferences.getString("Jangan Lupa","");
+        SharedPreferences preferences = getSharedPreferences("Enter",MODE_PRIVATE);
+        String cek = preferences.getString("Don't Forget","");
 
         if(cek.equals("true")){
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
         }
 
-        db = new Database(this);
+        tugasDatabase = new Database(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.btn_Login);
-        loginEmail = findViewById(R.id.txt_loginEmail);
-        loginPass = findViewById(R.id.txt_loginPass);
+        emailLogin = findViewById(R.id.txt_emailLogin);
+        passwordLogin = findViewById(R.id.txt_passwordLogin);
         textView = findViewById(R.id.daftar);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,17 +47,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = loginEmail.getText().toString();
-                String pass = loginPass.getText().toString();
-                broadcaster();
+                String email = emailLogin.getText().toString();
+                String password = passwordLogin.getText().toString();
 
-                Boolean checkMail = db.checkLogin(email,pass);
-                if(checkMail==true){
-//                  Toast.makeText(getApplicationContext(),"Login Berhasil",Toast.LENGTH_SHORT).show();
-
-                    SharedPreferences preferen = getSharedPreferences("masuk",MODE_PRIVATE);
+                Boolean emailCheck = tugasDatabase.checkLogin(email,password);
+                if(emailCheck==true){
+                    SharedPreferences preferen = getSharedPreferences("Enter",MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferen.edit();
-                    editor.putString("ingat","true");
+                    editor.putString("Remember","true");
                     editor.apply();
 
                     Bundle extras = new Bundle();
@@ -65,20 +62,15 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     intent.putExtras(extras);
                     startActivity(intent);
-                    loginEmail.getText().clear();
-                    loginPass.getText().clear();
+                    emailLogin.getText().clear();
+                    passwordLogin.getText().clear();
 
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),"Email/Password is Wrong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Email or password is Wrong, can you try again",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
-    private void broadcaster(){
-        Intent broadcasterIntent = new Intent("My_ACTION");
-        broadcasterIntent.setComponent(new ComponentName(getPackageName(),"com.example.tugas1.MyBroadcastReciver"));
-        getApplicationContext().sendBroadcast(broadcasterIntent);
     }
 
 }

@@ -19,13 +19,13 @@
             android:hint="Email"
             android:inputType="textEmailAddress"/>
         <EditText
-            android:id="@+id/txt_nama"
+            android:id="@+id/txt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
             android:inputType="textEmailAddress"/>
         <EditText
-            android:id="@+id/txt_pass"
+            android:id="@+id/txt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"

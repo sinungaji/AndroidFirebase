@@ -21,9 +21,9 @@ public class FragmentHome extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferen = getActivity().getSharedPreferences("Masuk", MODE_PRIVATE);
+                SharedPreferences preferen = getActivity().getSharedPreferences("Enter", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferen.edit();
-                editor.putString("Jangan Lupa", "false");
+                editor.putString("Don't Forget", "false");
                 editor.apply();
                 getActivity().finish();
             }

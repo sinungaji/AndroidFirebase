@@ -12,8 +12,8 @@ import android.net.wifi.WifiManager;
 import android.widget.Toast;
 import android.content.BroadcastReceiver;
 
-import static com.example.tugas1.Wifi.On_Wifi;
-import static com.example.tugas1.Wifi.Off_Wifi;
+import static com.example.tugas1.Wifi.CONNECT;
+import static com.example.tugas1.Wifi.DISCONNECT;
 import com.google.android.material.tabs.TabLayout;
 import android.content.Intent;
 import java.util.ArrayList;
@@ -64,8 +64,8 @@ public class HomeActivity extends AppCompatActivity {
                     WifiManager.WIFI_STATE_UNKNOWN);
             switch (wifiStateExtra){
                 case WifiManager.WIFI_STATE_ENABLED:
-                    android.app.Notification notification = new NotificationCompat.Builder(HomeActivity.this,On_Wifi)
-                            .setSmallIcon(R.drawable.ic_wifi_on)
+                    android.app.Notification notification = new NotificationCompat.Builder(HomeActivity.this,CONNECT)
+                            .setSmallIcon(R.drawable.ic_wifi)
                             .setPriority(NotificationCompat.PRIORITY_HIGH)
                             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                             .setContentTitle("Wifi")
@@ -74,8 +74,8 @@ public class HomeActivity extends AppCompatActivity {
                     notificationCompat.notify(1,notification);
                     break;
                 case WifiManager.WIFI_STATE_DISABLED:
-                    android.app.Notification notification2 = new NotificationCompat.Builder(HomeActivity.this,Off_Wifi)
-                            .setSmallIcon(R.drawable.ic_wifi_off)
+                    android.app.Notification notification2 = new NotificationCompat.Builder(HomeActivity.this,DISCONNECT)
+                            .setSmallIcon(R.drawable.ic_wifi)
                             .setPriority(NotificationCompat.PRIORITY_LOW)
                             .setContentTitle("Wifi")
                             .setContentText("Terputus dengan Wifi")

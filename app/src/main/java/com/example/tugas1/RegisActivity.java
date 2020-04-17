@@ -10,41 +10,41 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisActivity extends AppCompatActivity {
-    Database db;
+    Database tugasDatabase;
     private Button buttonRegis, buttonCancel;
-    private EditText txtEmail,txtNama,txtPass;
+    private EditText emailText,nameText,passwordText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regis_layout);
-        db = new Database(this);
-        txtEmail = findViewById(R.id.txt_email);
-        txtNama = findViewById(R.id.txt_nama);
-        txtPass = findViewById(R.id.txt_pass);
+        tugasDatabase = new Database(this);
+        emailText = findViewById(R.id.txt_email);
+        nameText = findViewById(R.id.txt_name);
+        passwordText = findViewById(R.id.txt_password);
 
 
         buttonRegis = findViewById(R.id.btn_Regis);
         buttonRegis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = txtEmail.getText().toString();
-                String nama = txtNama.getText().toString();
-                String pass = txtPass.getText().toString();
-                if(email.equals("") || nama.equals("") || pass.equals("")){
-                    Toast.makeText(getApplicationContext(),"Field Kosong",Toast.LENGTH_SHORT).show();
+                String email = emailText.getText().toString();
+                String name = nameText.getText().toString();
+                String password = passwordText.getText().toString();
+                if(email.equals("") || name.equals("") || password.equals("")){
+                    Toast.makeText(getApplicationContext(),"Field Empyty",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Boolean checkMail = db.checkData(email);
-                    if(checkMail==true){
-                        Boolean insertData = db.masukkanData(email,nama,pass);
+                    Boolean emailCheck = tugasDatabase.checkData(email);
+                    if(emailCheck==true){
+                        Boolean insertData = tugasDatabase.masukkanData(email,name,password);
                         if(insertData==true){
-                            Toast.makeText(getApplicationContext(),"Berhasil Registrasi",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Successful Registration",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisActivity.this, MainActivity.class);
                             startActivity(intent);
                         }
                     }
                     else{
-                        Toast.makeText(getApplicationContext(),"Email Telah Terdaftar",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Email Registered",Toast.LENGTH_SHORT).show();
                     }
                 }
             }

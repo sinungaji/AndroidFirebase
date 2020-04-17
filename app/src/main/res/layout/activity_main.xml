@@ -13,13 +13,13 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/txt_loginEmail"
+            android:id="@+id/txt_emailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
             android:inputType="textEmailAddress"/>
         <EditText
-            android:id="@+id/txt_loginPass"
+            android:id="@+id/txt_passwordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
