@@ -71,7 +71,7 @@ public class HomeActivity extends AppCompatActivity {
                             .setContentTitle("Wifi")
                             .setContentText("Terhubung dengan Wifi")
                             .build();
-                    notificationCompat.notify(1,notification);
+//                    notificationCompat.notify(1,notification);
                     break;
                 case WifiManager.WIFI_STATE_DISABLED:
                     android.app.Notification notification2 = new NotificationCompat.Builder(HomeActivity.this,DISCONNECT)
@@ -80,7 +80,7 @@ public class HomeActivity extends AppCompatActivity {
                             .setContentTitle("Wifi")
                             .setContentText("Terputus dengan Wifi")
                             .build();
-                    notificationCompat.notify(2,notification2);
+//                    notificationCompat.notify(2,notification2);
                     break;
             }
         }

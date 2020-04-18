@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Tugas 1</string>
+
+    <string-array name="nama_film">
+        <item>Dua Garis Biru</item>
+        <item>End Game</item>
+        <item>Bucin</item>
+        <item>Garuda Di Dadaku</item>
+    </string-array>
+
+    <string-array name="Deskripsi">
+        <item>Ini Film Terfavorit</item>
+        <item>Ini Film Terfavorit</item>
+        <item>Ini Film Terfavorit</item>
+        <item>Ini Film Terfavorit</item>
+
+    </string-array>
 </resources>

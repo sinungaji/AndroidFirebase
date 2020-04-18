@@ -1,33 +1,29 @@
 package com.example.tugas1;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-
-import android.content.Intent;
-
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
 import androidx.fragment.app.Fragment;
-import static android.content.Context.MODE_PRIVATE;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 public class FragmentHome extends Fragment {
 
-    private Button logout;
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedIntancesState){
+    RecyclerView recyclerView;
+    String s1[], s2[];
+    int images[] = {R.drawable.dua_garis_biru,R.drawable.endgame,R.drawable.bucin,R.drawable.garuda_didadaku};
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstancesState){
         View view = inflater.inflate(R.layout.home,container,false);
-        logout = view.findViewById(R.id.button);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences preferen = getActivity().getSharedPreferences("Enter", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferen.edit();
-                editor.putString("Don't Forget", "false");
-                editor.apply();
-                getActivity().finish();
-            }
-        });
+        s1 = getResources().getStringArray(R.array.nama_film);
+        s2 = getResources().getStringArray(R.array.Deskripsi);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
+        Recycle recyclerviewHomeAdapter = new Recycle(getContext(),s1,s2,images);
+        recyclerView.setAdapter(recyclerviewHomeAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
 

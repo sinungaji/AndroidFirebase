@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "491590956848",
-    "firebase_url": "https://test-4f4bd.firebaseio.com",
-    "project_id": "test-4f4bd",
-    "storage_bucket": "test-4f4bd.appspot.com"
+    "project_number": "354170419282",
+    "firebase_url": "https://tugas-1-5fdc1.firebaseio.com",
+    "project_id": "tugas-1-5fdc1",
+    "storage_bucket": "tugas-1-5fdc1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:491590956848:android:9a3d547077ebc58034faf5",
+        "mobilesdk_app_id": "1:354170419282:android:4ccebcc11ff0fde7cd478b",
         "android_client_info": {
           "package_name": "com.example.tugas1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "491590956848-l6qoor4cv9f58vnftut44mjv72f1k6cq.apps.googleusercontent.com",
+          "client_id": "354170419282-rudc3as1c8dgh8ribiui9okehcht147b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tugas1",
+            "certificate_hash": "7b3e32a4e404ed011612dbd2e8863890af7832b8"
+          }
+        },
+        {
+          "client_id": "354170419282-gthrdcib8ia23usakuuc4ofu4elbmo4q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD8Qvi0j8Yj20V50tjmvQUGLa2rnqmtMdo"
+          "current_key": "AIzaSyDGEV_pVSWJTsg2Vo4BCMgvSWNLqJwWOxY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "491590956848-l6qoor4cv9f58vnftut44mjv72f1k6cq.apps.googleusercontent.com",
+              "client_id": "354170419282-gthrdcib8ia23usakuuc4ofu4elbmo4q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

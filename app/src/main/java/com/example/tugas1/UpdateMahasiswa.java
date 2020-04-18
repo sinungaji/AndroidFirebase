@@ -29,7 +29,7 @@ public class UpdateMahasiswa extends AppCompatActivity {
 
         no_Mahasiswa = findViewById(R.id.editTextUploadno_Mahasiswa);
         nama_Mahasiswa = findViewById(R.id.editTextUploadnama_Mahasiswa);
-        phone_Mahasiswa = findViewById(R.id.editTextUploadphone_Mahasiswa);
+        phone_Mahasiswa = findViewById(R.id.editTextUploadPhone);
         upload = findViewById(R.id.buttonUploadMhs);
 
         getData();
@@ -41,7 +41,7 @@ public class UpdateMahasiswa extends AppCompatActivity {
                 if (!no_Mahasiswa.getText().toString().isEmpty() && !nama_Mahasiswa.getText().toString().isEmpty()) {
                     updateMahasiswa();
                 } else {
-                    Toast.makeText(getApplicationContext(), "No dan Nama Mhs tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "No dan Nama Mahasiswa tidak boleh kosong", Toast.LENGTH_SHORT).show();
                 }
             }
         });

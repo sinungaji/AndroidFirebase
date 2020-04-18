@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimary"
     tools:context=".UpdateMahasiswa">
 
     <EditText
@@ -48,9 +48,9 @@
         android:layout_height="49dp"
         android:layout_marginTop="32dp"
         android:text="UPDATE"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUploadphone_Mahasiswa" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextUploadPhone" />
 </androidx.constraintlayout.widget.ConstraintLayout>
