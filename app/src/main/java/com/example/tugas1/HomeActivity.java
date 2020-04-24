@@ -1,7 +1,13 @@
 package com.example.tugas1;
 
+import android.Manifest;
+import android.content.ContentValues;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationManagerCompat;
@@ -9,6 +15,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.viewpager.widget.ViewPager;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
+import android.provider.MediaStore;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.content.BroadcastReceiver;
 
@@ -19,6 +27,8 @@ import android.content.Intent;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Context;
+import android.widget.Button;
+import android.view.View;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -26,12 +36,20 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private NotificationManagerCompat notificationCompat;
-
+    Button mCaputreBtn;
+    private static final int PERMISSION_CODE = 1000;
+    private static final int IMAGE_CAPTURE_CODE = 1001;
+    Uri image_uri;
+    ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_main);
+
+
+
+
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tab);
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager()));
@@ -45,6 +63,7 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),buddle_isi,Toast.LENGTH_SHORT).show();
         }
     }
+
 
     @Override
     protected void onStart() {
