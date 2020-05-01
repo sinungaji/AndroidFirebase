@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.ComponentName;
+import android.content.res.Configuration;
 
 public class MainActivity extends AppCompatActivity {
     Database tugasDatabase;
@@ -71,6 +72,22 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
+        {
+            // Toast.makeText(getActivity(),"PORTRAIT",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Potrait", Toast.LENGTH_SHORT).show();
+            //add your code what you want to do when screen on PORTRAIT MODE
+        }
+        else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+            //Toast.makeText(getActivity(),"LANDSCAPE",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Lanscape", Toast.LENGTH_SHORT).show();
+            //add your code what you want to do when screen on LANDSCAPE MODE
+        }
     }
 
 }
