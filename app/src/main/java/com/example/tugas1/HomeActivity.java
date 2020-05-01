@@ -29,7 +29,7 @@ import java.util.List;
 import android.content.Context;
 import android.widget.Button;
 import android.view.View;
-
+import android.content.res.Configuration;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -61,6 +61,22 @@ public class HomeActivity extends AppCompatActivity {
         if(bundle != null){
             String buddle_isi = bundle.getString("KEY","");
             Toast.makeText(getApplicationContext(),buddle_isi,Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
+        {
+            // Toast.makeText(getActivity(),"PORTRAIT",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "POTRAIT", Toast.LENGTH_SHORT).show();
+            //add your code what you want to do when screen on PORTRAIT MODE
+        }
+        else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+            //Toast.makeText(getActivity(),"LANDSCAPE",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "LANDSCAPE", Toast.LENGTH_SHORT).show();
+            //add your code what you want to do when screen on LANDSCAPE MODE
         }
     }
 

@@ -32,7 +32,7 @@ public class FragmentCall extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferen = Objects.requireNonNull(getActivity()).getSharedPreferences("masuk", MODE_PRIVATE);
+                SharedPreferences preferen = Objects.requireNonNull(getActivity()).getSharedPreferences("Enter", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferen.edit();
                 editor.putString("ingat","false");
                 editor.apply();

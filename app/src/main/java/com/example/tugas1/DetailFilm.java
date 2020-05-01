@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.content.res.Configuration;
 import com.example.tugas1.R;
 
 public class DetailFilm extends AppCompatActivity {
@@ -26,6 +27,22 @@ public class DetailFilm extends AppCompatActivity {
 
         getData();
         setData();
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
+        {
+            // Toast.makeText(getActivity(),"PORTRAIT",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "POTRAIT", Toast.LENGTH_SHORT).show();
+            //add your code what you want to do when screen on PORTRAIT MODE
+        }
+        else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+            //Toast.makeText(getActivity(),"LANDSCAPE",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "LANDSCAPE", Toast.LENGTH_SHORT).show();
+            //add your code what you want to do when screen on LANDSCAPE MODE
+        }
     }
 
     private void getData(){

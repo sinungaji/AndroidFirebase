@@ -79,15 +79,14 @@ public class MainActivity extends AppCompatActivity {
         if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
         {
             // Toast.makeText(getActivity(),"PORTRAIT",Toast.LENGTH_LONG).show();
-            Toast.makeText(getApplicationContext(), "Potrait", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "POTRAIT", Toast.LENGTH_SHORT).show();
             //add your code what you want to do when screen on PORTRAIT MODE
         }
         else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
         {
             //Toast.makeText(getActivity(),"LANDSCAPE",Toast.LENGTH_LONG).show();
-            Toast.makeText(getApplicationContext(), "Lanscape", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "LANDSCAPE", Toast.LENGTH_SHORT).show();
             //add your code what you want to do when screen on LANDSCAPE MODE
         }
     }
-
 }

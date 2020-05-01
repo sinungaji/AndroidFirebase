@@ -25,14 +25,19 @@
         <activity
             android:name=".AddMahasiswa"
             android:label="Add Mahasiswa"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".HomeActivity"
+            android:configChanges="orientation|screenSize"/>
+
 
         <activity
             android:name=".DetailFilm"
             android:label="Details"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".HomeActivity" />
 
         <activity
+            android:label="Main"
+            android:configChanges="orientation|screenSize"
             android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +47,10 @@
         </activity>
 
         <activity android:name=".RegisActivity"></activity>
-        <activity android:name=".HomeActivity" />
+        <activity
+            android:label="Home"
+            android:configChanges="orientation|screenSize"
+            android:name=".HomeActivity" />
         <activity android:name=".CameraActivity" />
 
     </application>
